@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+	<h2 id="clock">00:00</h2>
 	<!-- input tag의 validity check(required)를 하기위해서는 form tag내에 있어야한다. -->
 	<form id="login-form" class="hidden">
 		<input 
@@ -18,9 +19,14 @@
 		\>
 		<input type="submit" value="login">
 	</form>
-
-	<h2 id="clock">00:00</h2>
 	<h1 id="greeting" class="hidden"></h1>
+	
+	<form id="todo-form">
+		<input required type="text" placeholder="Write a To do press enter."/>
+	</form>
+	<ul id="todo-list">
+		<!-- <li>{todo1}</li> -->
+	</ul>
 	<div id="quotes">
 		<span></span>
 		<span></span>
@@ -29,5 +35,6 @@
 	<script src="js/clock.js"></script>
 	<script src="js/quotes.js"></script>
 	<script src="js/backgrounds.js"></script>
+	<script src="js/todo.js"></script>
 </body>
 </html>
