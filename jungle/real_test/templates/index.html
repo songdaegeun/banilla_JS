@@ -1,0 +1,232 @@
+<!Doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+
+    <!-- 구글폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded&display=swap" rel="stylesheet">
+
+
+    <title>나홀로 메모장 Ver2.0</title>
+
+    <!-- style -->
+    <style>
+        * {
+            font-family: 'Unbounded', cursive;
+        }
+
+        .wrap {
+            width: 900px;
+            margin: auto;
+        }
+
+        .comment {
+            color: blue;
+            font-weight: bold;
+        }
+
+        #post-box {
+            width: 400px;
+            margin: 20px 0 0 0;
+        }
+
+        .card-columns {
+            column-count: 2;
+            width: 600px;
+        }
+
+        .mod_input {
+            margin: 0 0 0 10px;
+            height: 400px;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            showCardlist();
+        });
+        let old_key = "";
+        function openClose(key) {
+            if ($(".mod_input").css("display") == "block") {
+                if (key == old_key) {
+                    $(".mod_input").hide();
+                    // .mod_title, .mod_text clear
+                    $(".mod-title").val("");
+                    $(".mod-text").val("");
+                }
+                else {
+                    // pass
+                }
+            }
+            else {
+                $(".mod_input").show();
+                old_key = key;
+            }
+        }
+        function clear() {
+            $(".card-columns").html("");
+            old_key = "";
+            $(".mod_input").hide();
+            $("#input_title").val("");
+            $("#input_text").val("");
+            $(".mod-title").val("");
+            $(".mod-text").val("");
+        }
+        function appendCardlist() {
+            let title = $("#input_title").val();
+            let text = $("#input_text").val();
+
+            // 공백 제거 후 title과 text의 내용 존재 여부 확인
+            if ((title.replace(/\s/g, "") != "") && (text.replace(/\s/g, "") != "")) {
+                $.ajax({
+                    type: "POST",
+                    url: "/db/create",
+                    data: { card_title: title, card_text: text },
+                    success: function (response) {
+                        if (response["result"] == "success") {
+                            alert("저장 완료!");
+                            showCardlist();
+                        } else {
+                            alert("저장 실패!");
+                        }
+                    }
+                })
+            }
+            else {
+                alert("title 또는 text가 입력되지 않았습니다.");
+            }
+
+        }
+        function updateCardlist() {
+            let title = $(".mod-title").val();
+            let text = $(".mod-text").val();
+
+            $.ajax({
+                type: "POST",
+                url: "/db/update",
+                data: { card_title: title, card_text: text, key: old_key },
+                success: function (response) {
+                    if (response["result"] == "success") {
+                        alert("수정 완료!");
+                        // console.log(title,text);
+                        old_key = title;      // 이제 .mod_input을 관리하는 key는 .mod-title에 입력된 title이다.
+                        showCardlist();
+                    } else {
+                        alert("수정 실패!")
+                    }
+                }
+            })
+        }
+        function deleteCardlist(title) {
+            $.ajax({
+                type: "POST",
+                url: "/db/delete",
+                data: { card_title: title },
+                success: function (response) {
+                    if (response["result"] == "success") {
+                        alert("삭제 완료!");
+                        showCardlist();
+                    } else {
+                        alert("삭제 실패!")
+                    }
+                }
+            })
+        }
+
+        function showCardlist() {
+            clear();
+
+            $.ajax({
+                type: "GET",
+                url: "/db/read",
+                data: {},
+                success: function (response) {
+                    let status = response["result"];
+                    if (status == "success") {
+                        // alert("showCardlist success!");
+
+                        let cardList = response["cardlist"];
+                        for (let i = 0; i < cardList.length; i++) {
+                            makeCard(cardList[i]["title"], cardList[i]["text"]);
+                        }
+                    }
+                    else {
+                        // alert("showCardlist fail!");
+                    }
+                }
+            });
+        }
+        function makeCard(title, text) {
+            // console.log(title, text);
+            let tempHtml = `
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">${title}</h4>
+                    <p class="card-text">${text}</p>
+                    <span class="badge badge-info" onclick="openClose('${title}')">수정</span>
+                    <span class="badge badge-danger" onclick="deleteCardlist('${title}')">삭제</span>
+                </div>
+            </div>
+            `;
+            $(".card-columns").append(tempHtml);
+        }
+    </script>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="jumbotron">
+            <div id="post-box" class="form-post">
+                <h2><b>나홀로메모장</b> <span class="badge badge-secondary">ver2.0</span></h2>
+                <div class="form-group">
+                    <input id="input_title" class="form-control" placeholder="제목을 입력하세요">
+                </div>
+                <div class="form-group">
+                    <textarea id="input_text" class="form-control" placeholder="내용을 입력하세요" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" onclick="appendCardlist()">저장하기</button>
+            </div>
+        </div>
+        <div id="card-list">
+            <div class="card-group">
+                <div class="card-columns">
+                    <!-- <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">title</h4>
+                            <p class="card-text">text</p>
+                            <span class="badge badge-info">수정</span>
+                            <span class="badge badge-danger">삭제</span>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="mod_input" style="display:None">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <input class="mod-title" placeholder="K번째 제목">
+                            </div>
+                            <div class="form-group">
+                                <textarea class="mod-text" placeholder="K번째 내용" rows="3"></textarea>
+                            </div>
+                            <span class="badge badge-success" onclick="updateCardlist()">저장</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>
