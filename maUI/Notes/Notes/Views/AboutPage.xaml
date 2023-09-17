@@ -18,12 +18,13 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:models="clr-namespace:Notes.Models"
-             x:Class="Notes.Views.AboutPage">
+             x:Class="Notes.Views.AboutPage"
+             Title="About">
     <ContentPage.BindingContext>
         <models:About />
     </ContentPage.BindingContext>
-    <!--BindingContext = models:About-->
-    <VerticalStackLayout Spacing="10" Margin="10">
+    
+    <VerticalStackLayout Spacing="30" Margin="50">
         <HorizontalStackLayout Spacing="10">
             <Image Source="dotnet_bot.png"
                    SemanticProperties.Description="The dot net bot waving hello!"

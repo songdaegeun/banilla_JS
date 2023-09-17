@@ -1,4 +1,45 @@
 ﻿<Properties StartupConfiguration="{2C230AF0-B3DD-402E-AD03-64788DA90D0D}|Default">
-  <MonoDevelop.Ide.ItemProperties.Notes FirstBuild="True" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.MonoDroid LastDeploySdkVersion="33.0.68" />
+  <MonoDevelop.Ide.ItemProperties.Notes PreferredExecutionTarget="Android.pixel_5_-_api_33" />
+  <Xamarin.Addins.Core.Project ActiveDebugTarget="Android.pixel_5_-_api_33" />
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Notes/AppShell.xaml.cs">
+    <Files>
+      <File FileName="Notes/AppShell.xaml" Line="18" Column="30" />
+      <File FileName="Notes/AppShell.xaml.cs" Line="13" Column="1" />
+      <File FileName="Notes/Views/AboutPage.xaml" Line="23" Column="32" />
+      <File FileName="Notes/AboutPage.xaml.cs" Line="10" Column="39" />
+      <File FileName="Notes/Models/About.cs" Line="4" Column="2" />
+      <File FileName="Notes/Views/AllNotesPage.xaml" Line="12" Column="45" />
+      <File FileName="Notes/Views/AllNotesPage.xaml.cs" Line="10" Column="6" />
+      <File FileName="Notes/Models/AllNotes.cs" Line="22" Column="72" />
+      <File FileName="Notes/Views/NotePage.xaml" Line="10" Column="38" />
+      <File FileName="Notes/Views/NotePage.xaml.cs" Line="5" Column="2" />
+      <File FileName="Notes/Models/Note.cs" Line="6" Column="37" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Notes">
+            <Node name="Notes">
+              <Node name="Resources" expanded="True">
+                <Node name="Images" expanded="True" />
+              </Node>
+              <Node name="AppShell.xaml">
+                <Node name="AppShell.xaml.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
 </Properties>

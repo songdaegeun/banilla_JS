@@ -10,12 +10,12 @@
     
     <TabBar>
         <ShellContent
-            Title="Notes"
+            Title="AppShell1"
             ContentTemplate="{DataTemplate views:AllNotesPage}"
             Icon="{OnPlatform 'icon_notes.png', iOS='icon_notes_ios.png', MacCatalyst='icon_notes_ios.png'}" />
 
         <ShellContent
-            Title="About"
+            Title="AppShell2"
             ContentTemplate="{DataTemplate views:AboutPage}"
             Icon="{OnPlatform 'icon_about.png', iOS='icon_about_ios.png', MacCatalyst='icon_about_ios.png'}" />
     </TabBar>
