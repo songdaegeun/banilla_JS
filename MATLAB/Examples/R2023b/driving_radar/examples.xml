@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<demos>
+  <demoitem>
+    <source>SimulatingRadarGhostsDueToMultipathExample</source>
+    <type>live</type>
+    <extension>mlx</extension>
+    <metadata>ex22577625</metadata>
+    <thumbnail>html/SimulatingRadarGhostsDueToMultipathExample_03.png</thumbnail>
+    <product>matlab</product>
+    <product>radar</product>
+    <product>driving</product>
+    <file component="driving_radar" timestamp="1623851878">2-Bounce-Multipath-Illustration.png</file>
+    <file component="driving_radar" timestamp="1623851878">3-Bounce-Multipath-Illustration.png</file>
+    <file component="driving_radar" timestamp="1687532574">helperPlotScenario.m</file>
+    <file component="driving_radar" timestamp="1687532574">helperSetupBEP.m</file>
+    <file component="driving_radar" timestamp="1687532574">helperSimpleHighwayScenarioDSD.m</file>
+    <file component="driving_radar" timestamp="1626385840">ghostIQ.gif</file>
+    <file component="driving_radar" timestamp="1674482102">helper3BounceGhostPaths.m</file>
+    <file component="driving_radar" timestamp="1687532574">helperFigureName.m</file>
+    <file component="driving_radar" timestamp="1687532574">helperFindPeaks2D.m</file>
+    <file component="driving_radar" timestamp="1687532574">helperGroundBounceScenarioDSD.m</file>
+    <file component="driving_radar" timestamp="1687532574">helperPlayStatAndIQMovie.m</file>
+    <file component="driving_radar" timestamp="1687532574">helperPlotBeamformedRangeDoppler.m</file>
+    <file component="driving_radar" timestamp="1687532574">helperPlotScenario3D.m</file>
+    <file component="driving_radar" timestamp="1687532574">helperRadarChasePlot.m</file>
+    <file component="driving_radar" timestamp="1687532574">helperRoadPoses.m</file>
+    <file component="driving_radar" timestamp="1687532574">helperRoadProfiles.m</file>
+  </demoitem>
+  <demoitem>
+    <source>AutomatedDrivingRadarSimulationExample</source>
+    <type>live</type>
+    <extension>mlx</extension>
+    <metadata>ex90572992</metadata>
+    <thumbnail>html/AutomatedDrivingRadarSimulationExample_04.png</thumbnail>
+    <product>driving</product>
+    <product>radar</product>
+    <file component="driving_radar" timestamp="1628104568">helperAutoDrivingRadarSigProc.m</file>
+    <file component="driving_radar" timestamp="1533580750">FMCWExample_acc.png</file>
+    <file component="driving_radar" timestamp="1533580750">FMCWExample_tworay.png</file>
+  </demoitem>
+  <demoitem>
+    <source>SimulateAnAutomotive4DImagingMIMORadarExample</source>
+    <type>live</type>
+    <extension>mlx</extension>
+    <metadata>ex92200264</metadata>
+    <thumbnail>html/SimulateAnAutomotive4DImagingMIMORadarExample_11.png</thumbnail>
+    <sandboxPublished/>
+    <product>matlab</product>
+    <product>radar</product>
+    <product>driving</product>
+    <file component="driving_radar" timestamp="1674508896">helperCreateOverpassScenario.m</file>
+    <file component="driving_radar" timestamp="1671803552">helperFreespacePaths.m</file>
+    <file component="driving_radar" timestamp="1674765082">helperPosesToPaths.m</file>
+    <file component="driving_radar" timestamp="1671803552">helperPosesToSensorFrame.m</file>
+    <file component="driving_radar" timestamp="1671803552">helperSensorFrame.m</file>
+    <file component="driving_radar" timestamp="1674765082">helperSetupDisplay.m</file>
+    <file component="driving_radar" timestamp="1671803552">helperSphericallySampleTargets.m</file>
+    <file component="driving_radar" timestamp="1671803552">helperTargetRCS.m</file>
+    <file component="driving_radar" timestamp="1674508896">helperViewArrays.m</file>
+    <file component="driving_radar" timestamp="1674508896">helperVirtualArray.m</file>
+    <file component="driving_radar" timestamp="1674523954">helperPlotDirectivities.m</file>
+    <file component="driving_radar" timestamp="1674523954">helperPlotPointCloudDetectionsDDMA.m</file>
+    <file component="driving_radar" timestamp="1674523954">helperPlotRangeDopplerDDMA.m</file>
+    <file component="driving_radar" timestamp="1674523954">helperPolarQuiver.m</file>
+  </demoitem>
+  <demoitem>
+    <source>AutomotiveRadarInterferenceExample</source>
+    <type>live</type>
+    <extension>mlx</extension>
+    <metadata>ex92887819</metadata>
+    <thumbnail>html/AutomotiveRadarInterferenceExample_10.gif</thumbnail>
+    <product>radar</product>
+    <product>matlab</product>
+    <product>driving</product>
+    <file component="driving_radar" timestamp="1685219383">helperAutoDrivingScenario.m</file>
+  </demoitem>
+</demos>
