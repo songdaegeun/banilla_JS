@@ -18,7 +18,7 @@ t_4p=[t-2*T0(kk) ; t-T0(kk) ; t ; t+T0(kk)];
 rect_4p=[rect ; rect ; rect ; rect];
 plot(t_4p,rect_4p,'k','Linewidth',2)
 xlabel('time [sec]')
-ylim([0 2])
+ylim([0 2])
 
 subplot(2,1,2)
 f_lim=3;     % 기준하는 maximum Hz까지 닿을 때까지 k를 뻗을 예정
